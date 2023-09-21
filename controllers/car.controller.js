@@ -28,7 +28,19 @@ carController.getCars = async (req, res, next) => {
     const limit = 10;
     const page = parseInt(req.query.page) || 1;
     const offset = limit * (page - 1);
-    const carFullList = await Car.find({ isDeleted: false });
+    const carFullList = await Car.find(
+      { isDeleted: false },
+      {
+        make: 1,
+        model: 1,
+        release_date: 1,
+        transmission_type: 1,
+        size: 1,
+        style: 1,
+        price: 1,
+        isDeleted: 1,
+      }
+    );
     const totalPages = Math.ceil(carFullList.length / limit);
     const carList = carFullList.slice(offset, offset + limit);
 
