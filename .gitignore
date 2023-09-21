@@ -128,3 +128,12 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Ignore cars.json
+cars.json
+
+# Ignore data.csv
+data.csv
+
+# Ignore create.js
+create.js
